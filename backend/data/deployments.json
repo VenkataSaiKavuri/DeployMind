@@ -155,5 +155,78 @@
     "status": "success",
     "risk_score": 29,
     "created_at": "2026-09-05T07:35:00Z"
+  },
+  {
+    "id": "DEP-010",
+    "service": "payment-service",
+    "version": "v2.8.1",
+    "environment": "production",
+    "developer": "Kavuri",
+    "code_changes": [
+      "Added payment retry handling",
+      "Updated Redis client",
+      "Modified timeout handling"
+    ],
+    "config_changes": {
+      "REDIS_TIMEOUT": "2000ms",
+      "RETRY_COUNT": "5"
+    },
+    "infra_changes": [
+      "Redis 7.2 -> 7.4"
+    ],
+    "status": "pending",
+    "risk_score": null,
+    "created_at": "2026-09-28T23:04:28.499874+00:00"
+  },
+  {
+    "id": "DEP-011",
+    "service": "payment-service",
+    "version": "v2.8.2",
+    "environment": "production",
+    "developer": "Kavuri",
+    "code_changes": [],
+    "config_changes": {
+      "REDIS_TIMEOUT": "3000ms"
+    },
+    "infra_changes": [],
+    "status": "pending",
+    "risk_score": null,
+    "created_at": "2026-09-28T23:06:01.856329+00:00"
+  },
+  {
+    "id": "DEP-012",
+    "service": "payment-service",
+    "version": "v2.8.5",
+    "environment": "staging",
+    "developer": "Kavuri",
+    "code_changes": [],
+    "config_changes": {},
+    "infra_changes": [
+      "Redis 7.2 -> 7.4"
+    ],
+    "status": "pending",
+    "risk_score": null,
+    "created_at": "2026-09-28T23:06:37.878890+00:00"
+  },
+  {
+    "id": "DEP-013",
+    "service": "payment-service",
+    "version": "v2.8.1",
+    "environment": "production",
+    "developer": "Kavuri",
+    "code_changes": [
+      "Added payment retry handling",
+      "Updated Redis client",
+      "Modified timeout handling"
+    ],
+    "config_changes": {
+      "5": "200ms"
+    },
+    "infra_changes": [
+      "Redis 7.2 - 7.4"
+    ],
+    "status": "pending",
+    "risk_score": null,
+    "created_at": "2026-09-28T23:16:44.593679+00:00"
   }
 ]

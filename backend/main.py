@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routers.dashboard import router as dashboard_router
-
+from routers.deployments import router as deployments_router
 
 load_dotenv()
 
@@ -38,3 +38,4 @@ def health():
     }
 
 app.include_router(dashboard_router)
+app.include_router(deployments_router)

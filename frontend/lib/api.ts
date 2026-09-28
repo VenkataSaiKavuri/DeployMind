@@ -1,14 +1,98 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-export async function getDashboard() {
+function getApiUrl() {
   if (!API_URL) {
     throw new Error("NEXT_PUBLIC_API_URL is not configured");
   }
 
-  const response = await fetch(`${API_URL}/api/dashboard`);
+  return API_URL;
+}
+
+export interface Deployment {
+  id: string;
+  service: string;
+  version: string;
+  environment: string;
+  developer: string;
+  code_changes: string[];
+  config_changes: Record<string, string>;
+  infra_changes: string[];
+  status: string;
+  risk_score: number | null;
+  created_at: string;
+}
+
+export interface CreateDeploymentPayload {
+  service: string;
+  version: string;
+  environment: string;
+  developer: string;
+  code_changes: string[];
+  config_changes: Record<string, string>;
+  infra_changes: string[];
+}
+
+export async function getDashboard() {
+  const response = await fetch(`${getApiUrl()}/api/dashboard`);
 
   if (!response.ok) {
     throw new Error("Failed to fetch dashboard");
+  }
+
+  return response.json();
+}
+
+export async function createDeployment(
+  payload: CreateDeploymentPayload
+): Promise<Deployment> {
+  const response = await fetch(`${getApiUrl()}/api/deployments`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!response.ok) {
+    let message = "Unable to create deployment.";
+
+    try {
+      const error = await response.json();
+
+      if (typeof error?.detail === "string") {
+        message = error.detail;
+      }
+    } catch {
+      // Keep the default user-friendly message.
+    }
+
+    throw new Error(message);
+  }
+
+  return response.json();
+}
+
+export async function getDeployment(
+  deploymentId: string
+): Promise<Deployment> {
+  const response = await fetch(
+    `${getApiUrl()}/api/deployments/${deploymentId}`
+  );
+
+  if (!response.ok) {
+    let message = "Unable to load deployment.";
+
+    try {
+      const error = await response.json();
+
+      if (typeof error?.detail === "string") {
+        message = error.detail;
+      }
+    } catch {
+      // Keep the default user-friendly message.
+    }
+
+    throw new Error(message);
   }
 
   return response.json();
