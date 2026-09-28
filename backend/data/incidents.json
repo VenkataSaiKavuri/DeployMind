@@ -1,0 +1,18 @@
+[
+  {
+    "id": "INC-022",
+    "service": "order-service",
+    "root_cause": "Database connection pool exhaustion",
+    "resolution": "Increased connection pool size and restarted affected instances",
+    "severity": "medium",
+    "status": "resolved"
+  },
+  {
+    "id": "INC-023",
+    "service": "payment-service",
+    "root_cause": "Redis connection timeout",
+    "resolution": "Increased Redis timeout to 5000ms",
+    "severity": "high",
+    "status": "resolved"
+  }
+]

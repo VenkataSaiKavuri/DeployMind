@@ -1,0 +1,104 @@
+[
+  {
+    "id": "MEM-184",
+    "service": "payment-service",
+    "days_ago": 14,
+    "change": "Redis timeout changed from 5000ms to 2000ms",
+    "outcome": "failed",
+    "root_cause": "Redis connection timeout under production traffic",
+    "resolution": "Increased Redis timeout to 5000ms",
+    "tags": [
+      "redis",
+      "timeout",
+      "payment",
+      "configuration"
+    ]
+  },
+  {
+    "id": "MEM-185",
+    "service": "payment-service",
+    "days_ago": 21,
+    "change": "Payment retry count increased from 3 to 5",
+    "outcome": "latency",
+    "root_cause": "Additional retries increased request processing time",
+    "resolution": "Reduced retry count back to 3",
+    "tags": [
+      "payment",
+      "retry",
+      "latency"
+    ]
+  },
+  {
+    "id": "MEM-186",
+    "service": "payment-service",
+    "days_ago": 30,
+    "change": "Redis version upgraded from 7.1 to 7.2",
+    "outcome": "success",
+    "root_cause": "No production issue observed",
+    "resolution": "Deployment completed successfully after staging validation",
+    "tags": [
+      "redis",
+      "upgrade",
+      "payment",
+      "dependency"
+    ]
+  },
+  {
+    "id": "MEM-187",
+    "service": "payment-service",
+    "days_ago": 38,
+    "change": "Payment timeout changed from 5000ms to 3000ms",
+    "outcome": "failed",
+    "root_cause": "Payment requests timed out during traffic spikes",
+    "resolution": "Restored payment timeout to 8000ms",
+    "tags": [
+      "payment",
+      "timeout",
+      "configuration"
+    ]
+  },
+  {
+    "id": "MEM-188",
+    "service": "payment-service",
+    "days_ago": 45,
+    "change": "Redis connection pool increased",
+    "outcome": "success",
+    "root_cause": "Previous connection pool was approaching capacity",
+    "resolution": "Increased Redis connection pool and monitored production metrics",
+    "tags": [
+      "redis",
+      "payment",
+      "performance"
+    ]
+  },
+  {
+    "id": "MEM-189",
+    "service": "order-service",
+    "days_ago": 52,
+    "change": "Database index added for order lookup",
+    "outcome": "rollback",
+    "root_cause": "Migration caused unexpected database locking",
+    "resolution": "Rolled back the migration and rescheduled the index change",
+    "tags": [
+      "database",
+      "migration",
+      "order",
+      "rollback"
+    ]
+  },
+  {
+    "id": "MEM-190",
+    "service": "auth-service",
+    "days_ago": 60,
+    "change": "Authentication dependency upgraded",
+    "outcome": "success",
+    "root_cause": "Dependency upgrade passed staging validation",
+    "resolution": "Released the upgraded authentication dependency to production",
+    "tags": [
+      "auth",
+      "dependency",
+      "upgrade",
+      "success"
+    ]
+  }
+]

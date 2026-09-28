@@ -1,0 +1,159 @@
+[
+  {
+    "id": "DEP-001",
+    "service": "payment-service",
+    "version": "v2.7.0",
+    "environment": "production",
+    "developer": "Aarav",
+    "code_changes": [
+      "Added payment retry handling"
+    ],
+    "config_changes": {
+      "REDIS_TIMEOUT": "5000ms"
+    },
+    "infra_changes": [
+      "Redis 7.1 → 7.2"
+    ],
+    "status": "success",
+    "risk_score": 24,
+    "created_at": "2026-09-20T10:30:00Z"
+  },
+  {
+    "id": "DEP-002",
+    "service": "order-service",
+    "version": "v3.2.1",
+    "environment": "production",
+    "developer": "Priya",
+    "code_changes": [
+      "Improved order validation"
+    ],
+    "config_changes": {},
+    "infra_changes": [],
+    "status": "success",
+    "risk_score": 18,
+    "created_at": "2026-09-19T09:15:00Z"
+  },
+  {
+    "id": "DEP-003",
+    "service": "payment-service",
+    "version": "v2.6.4",
+    "environment": "production",
+    "developer": "Rahul",
+    "code_changes": [
+      "Changed payment retry count"
+    ],
+    "config_changes": {
+      "PAYMENT_RETRY_COUNT": "5"
+    },
+    "infra_changes": [],
+    "status": "failed",
+    "risk_score": 78,
+    "created_at": "2026-09-17T14:20:00Z"
+  },
+  {
+    "id": "DEP-004",
+    "service": "auth-service",
+    "version": "v1.9.0",
+    "environment": "production",
+    "developer": "Meera",
+    "code_changes": [
+      "Updated token refresh logic"
+    ],
+    "config_changes": {
+      "TOKEN_EXPIRY": "30m"
+    },
+    "infra_changes": [],
+    "status": "success",
+    "risk_score": 31,
+    "created_at": "2026-09-15T11:45:00Z"
+  },
+  {
+    "id": "DEP-005",
+    "service": "notification-service",
+    "version": "v4.1.2",
+    "environment": "production",
+    "developer": "Vikram",
+    "code_changes": [
+      "Added notification batching"
+    ],
+    "config_changes": {
+      "BATCH_SIZE": "100"
+    },
+    "infra_changes": [],
+    "status": "success",
+    "risk_score": 22,
+    "created_at": "2026-09-13T08:50:00Z"
+  },
+  {
+    "id": "DEP-006",
+    "service": "order-service",
+    "version": "v3.3.0",
+    "environment": "production",
+    "developer": "Ananya",
+    "code_changes": [
+      "Added database indexing for order lookup"
+    ],
+    "config_changes": {},
+    "infra_changes": [
+      "PostgreSQL index migration"
+    ],
+    "status": "rollback",
+    "risk_score": 71,
+    "created_at": "2026-09-11T16:10:00Z"
+  },
+  {
+    "id": "DEP-007",
+    "service": "payment-service",
+    "version": "v2.8.0",
+    "environment": "staging",
+    "developer": "Kiran",
+    "code_changes": [
+      "Added idempotency handling for payment requests"
+    ],
+    "config_changes": {
+      "PAYMENT_TIMEOUT": "8000ms"
+    },
+    "infra_changes": [
+      "Redis connection pool increased"
+    ],
+    "status": "success",
+    "risk_score": 36,
+    "created_at": "2026-09-09T12:25:00Z"
+  },
+  {
+    "id": "DEP-008",
+    "service": "auth-service",
+    "version": "v2.0.0",
+    "environment": "production",
+    "developer": "Sanjay",
+    "code_changes": [
+      "Upgraded authentication dependency"
+    ],
+    "config_changes": {},
+    "infra_changes": [
+      "Container base image upgraded"
+    ],
+    "status": "failed",
+    "risk_score": 84,
+    "created_at": "2026-09-07T18:40:00Z"
+  },
+  {
+    "id": "DEP-009",
+    "service": "notification-service",
+    "version": "v4.2.0",
+    "environment": "production",
+    "developer": "Ishita",
+    "code_changes": [
+      "Updated email provider integration"
+    ],
+    "config_changes": {
+      "EMAIL_RETRY_COUNT": "3"
+    },
+    "infra_changes": [
+      "Notification worker capacity increased"
+    ],
+    "status": "success",
+    "risk_score": 29,
+    "created_at": "2026-09-05T07:35:00Z"
+  }
+]
