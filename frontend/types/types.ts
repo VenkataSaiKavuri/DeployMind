@@ -45,3 +45,14 @@ export type Recommendation = {
   actions: string[];
   confidence: number;
 };
+
+export type DashboardResponse = {
+  kpis: {
+    deployments: number;
+    risk_avoided: number;
+    memories: number;
+    learning_change: number;
+  };
+
+  recent_deployments: Deployment[];
+};
